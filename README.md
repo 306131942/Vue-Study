@@ -1,2 +1,1 @@
-# Vue-Study
-Vue知识点
+vue基础知识点总结
