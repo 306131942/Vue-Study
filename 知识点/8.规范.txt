@@ -1,0 +1,68 @@
+1、
+项目、文件夹名字：
+全部采用小写方式， 以中划线分隔。 比如： my‐project‐name
+目录名参照上一条规则,有复数结构时，要采用复数命名法，比如说： scripts
+
+2、
+html、JavaScript、css、scss文件命名
+多个单词组成时，采用中划线连接方，比如：error‐report.html
+
+3、
+class命名
+保持Class 命名为全小写，可以使用短划线（不要使用下划线和 camelCase 命名）。
+短划线应该作为相关类的自然间断。(例如， .btn 和 .btn‐danger )。
+
+4、javaScript空行
+方法之间加
+单行或多行注释前加
+逻辑块之间加空行增加可读性
+
+5、javaScript变量
+标准变量采用驼峰标识，第一个单字以小写字母开始，第二个单字的首字母大写
+使用的ID的地方一定全大写
+使用的URL的地方一定全大写
+涉及Android的，一律大写第一个字母
+涉及iOS的，一律小写第一个，大写后两个字母
+常量采用大写字母，下划线连接的方式const MAX_COUNT = 10
+构造函数，大写第一个字母
+var thisIsMyName;
+var goodID;
+var AndroidVersion;
+var iOSVersion;
+var MAX_COUNT = 10;
+function Person(name) {
+   this.name = name
+}
+
+扩展
+1、小驼峰式命名法（lower camel case）：
+第一个单字以小写字母开始，第二个单字的首字母大写。例如：firstName、lastName。
+2、大驼峰式命名法（upper camel case）：
+每一个单字的首字母都采用大写字母，例如：FirstName、LastName、CamelCase，也被称为 Pascal 命名法。
+2 . 驼峰式命名法：
+又叫小驼峰式命名法。 
+第一个单词首字母小写，后面其他单词首字母大写。
+int myAge; 
+char myName[10]; 
+float manHeight;
+3 . 帕斯卡命名法，也被称为 Pascal 命名法。
+又叫大驼峰式命名法。 
+每个单词的第一个字母都大写。
+
+6、单行注释
+双斜线后，必须跟注释内容保留一个空格
+可独占一行, 前边不许有空行, 缩进与下一行代码保持一致
+可位于一个代码行的末尾，注意这里的格式
+   // Good
+2. if (condition) {
+3.     // if you made it here, then all security checks passed
+4.     allowed();
+5. }
+6. var zhangsan = "zhangsan";     // 双斜线距离分号四个空格，双斜线后始终保留一个空格
+
+7、多行注释
+最少三行, 格式如下
+前边留空一行
+/*
+  * 注释内容与星标前保留一个空格
+  */
