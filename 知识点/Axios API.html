@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/304720 (zh-CN, DDL); Windows/6.1.7601 Service Pack 1 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="405"/>
+
+<div>
+<span><div><h2 style="margin: 0px 0px 0.5em; font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-weight: bold; color: rgb(51, 51, 51); text-rendering: optimizeLegibility; font-size: 18px; text-indent: 1em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">示例</h2><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">使用一个 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">GET</code> 请求</p><pre style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 1.5em; font-size: 14px; word-break: break-all; word-wrap: break-word; white-space: pre; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="color: rgb(136, 136, 136);">//发起一个user请求，参数为给定的ID</span>
+axios.get(<span style="color: rgb(136, 0, 0);">'/user?ID=1234'</span>)
+.then(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(respone){
+    <span style="color: rgb(57, 115, 0);">console</span>.log(response);
+})
+.catch(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(error){
+    <span style="color: rgb(57, 115, 0);">console</span>.log(error);
+});
+
+<span style="color: rgb(136, 136, 136);">//上面的请求也可选择下面的方式来写</span>
+axios.get(<span style="color: rgb(136, 0, 0);">'/user'</span>,{
+    params:{
+        ID:<span style="color: rgb(136, 0, 0);">12345</span>
+    }
+})
+    .then(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(response){
+        <span style="color: rgb(57, 115, 0);">console</span>.log(response);
+    })
+    .catch(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(error){
+        <span style="color: rgb(57, 115, 0);">console</span>.log(error)
+    });
+</pre><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">发起一个 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">POST</code> 请求</p><pre style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 1.5em; font-size: 14px; word-break: break-all; word-wrap: break-word; white-space: pre; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+axios.post(<span style="color: rgb(136, 0, 0);">'/user'</span>,{
+    firstName:<span style="color: rgb(136, 0, 0);">'friend'</span>,
+    lastName:<span style="color: rgb(136, 0, 0);">'Flintstone'</span>
+})
+.then(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(response){
+    console.<span style="color: rgb(57, 115, 0);">log</span>(response);
+})
+.<span style="color: rgb(51, 51, 51); font-weight: 700;">catch</span>(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(error){
+    console.<span style="color: rgb(57, 115, 0);">log</span>(error);
+});
+</pre><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">发起一个多重并发请求</p><div style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 1.5em; font-size: 14px; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="color: rgb(51, 51, 51); font-weight: 700;">function</span> <span style="color: rgb(136, 0, 0); font-weight: bold;">getUserAccount</span>(){<br/>
+    <span style="color: rgb(51, 51, 51); font-weight: 700;">return</span> axios.get(<span style="color: rgb(136, 0, 0);">'/user/12345'</span>);<br/>
+}<br/><br/><span style="color: rgb(51, 51, 51); font-weight: 700;">function</span> <span style="color: rgb(136, 0, 0); font-weight: bold;">getUserPermissions</span>(){<br/>
+    <span style="color: rgb(51, 51, 51); font-weight: 700;">return</span> axios.get(<span style="color: rgb(136, 0, 0);">'/user/12345/permissions'</span>);<br/>
+}<br/><br/>
+axios.all([getUerAccount(),getUserPermissions()])<br/>
+    .<span style="color: rgb(51, 51, 51); font-weight: 700;">then</span>(axios.spread(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(acc,pers){
+<div>        //只有两个请求都完成才会成功，否则会被catch捕获</div>
+    }));<br/></div><h2 style="margin: 0px 0px 0.5em; font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-weight: bold; color: rgb(51, 51, 51); text-rendering: optimizeLegibility; font-size: 18px; text-indent: 1em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">axios API</h2><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);"><code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">axios</code> 能够在进行请求时进行一些设置。</p><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">axios(config)</p><pre style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 1.5em; font-size: 14px; word-break: break-all; word-wrap: break-word; white-space: pre; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="color: rgb(136, 136, 136);">//发起 POST请求</span>
+
+<span style="color: rgb(51, 51, 51); font-weight: 700;">axios</span>({
+    <span style="color: rgb(51, 51, 51); font-weight: 700;">method</span>:<span style="color: rgb(136, 0, 0);">'post'</span>,
+    <span style="color: rgb(51, 51, 51); font-weight: 700;">url</span>:<span style="color: rgb(136, 0, 0);">'/user/12345'</span>,
+    <span style="color: rgb(51, 51, 51); font-weight: 700;">data</span>:{
+        <span style="color: rgb(51, 51, 51); font-weight: 700;">firstName</span>:<span style="color: rgb(136, 0, 0);">'Fred'</span>,
+        <span style="color: rgb(51, 51, 51); font-weight: 700;">lastName</span>:<span style="color: rgb(136, 0, 0);">'Flintstone'</span>
+    }
+});
+</pre><div style="margin: 0px 0px 0.75em; text-indent: 1em; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);"><div><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">axios(url[,config])</p><pre style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 0.75em; font-size: 14px; word-break: break-all; word-wrap: break-word; white-space: pre; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span style="color: rgb(136, 136, 136);">//发起一个GET请求</span><span style="color: rgb(51, 51, 51); font-weight: 700;">axios</span>('/user/<span style="color: rgb(136, 0, 0);">12345</span>/);
+</pre><div style="margin: 0px 0px 0.5em; text-rendering: optimizelegibility; text-indent: 1em; font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);"><div><h2 style="margin: 0px 0px 0.5em; font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-weight: bold; color: rgb(51, 51, 51); text-rendering: optimizeLegibility; font-size: 18px; text-indent: 1em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">请求设置</h2><div style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; font-family: 'Helvetica Neue', Helvetica, Tahoma, Arial, STXihei, 'Microsoft YaHei', 微软雅黑, sans-serif; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);"><div><span style="color: rgb(51, 51, 51);">以下列出了一些请求时的设置。只有 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">url</code> 是必须的，如果没有指明的话，默认的请求方法是 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">GET</code> .</span></div></div><div style="padding: 0.5em; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; display: block; margin: 0px 0px 1.5em; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><div style="display: block; padding: 15px; background: rgb(246, 246, 246); color: rgb(101, 123, 131); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; margin-top: 0px; margin-bottom: 20px; border: 1px solid rgb(204, 204, 204);"><div><span style="font-size: 12px;"><span style="background-color: transparent;">{</span></span></div><div><span style="font-size: 12px;"><br/></span></div><div><span style="font-size: 12px;"><span style="background-color: transparent;"> </span> <span style="color: rgb(147, 161, 161);"><span style="background-color: transparent;">//请求的接口，在请求的时候，如axios.get(url,config);这里的url会覆盖掉config中的url</span></span></span></div><code style="font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 0px; border: none; background-color: transparent;">  url: <span style="color: rgb(42, 161, 152);">'/user'</span>,<br/><br/>
+  <span style="color: rgb(147, 161, 161);">// 请求方法同上</span><br/>
+  method: <span style="color: rgb(42, 161, 152);">'get'</span>, <span style="color: rgb(147, 161, 161);">// default</span><br/>
+  <span style="color: rgb(147, 161, 161);">// 基础url前缀</span><br/>
+  baseURL: <span style="color: rgb(42, 161, 152);">'https://some-domain.com/api/'</span>,<br/>
+ <br/>
+   <br/>
+  transformRequest: [function (<span style="color: rgb(133, 153, 0);">data</span>) {<br/>
+    <span style="color: rgb(147, 161, 161);">// 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的Qs（这个模块在安装axios的时候就已经安装了，不需要另外安装）</span><br/>
+  <span style="color: rgb(133, 153, 0);">data</span> = Qs.stringify({});<br/>
+    <span style="color: rgb(133, 153, 0);">return</span> <span style="color: rgb(133, 153, 0);">data</span>;<br/>
+  }],<br/><br/>
+  transformResponse: [function (<span style="color: rgb(133, 153, 0);">data</span>) {<br/>
+    <span style="color: rgb(147, 161, 161);">// 这里提前处理返回的数据</span><br/><br/>
+    <span style="color: rgb(133, 153, 0);">return</span> <span style="color: rgb(133, 153, 0);">data</span>;<br/>
+  }],<br/><br/>
+  <span style="color: rgb(147, 161, 161);">// 请求头信息</span><br/>
+  headers: {<span style="color: rgb(42, 161, 152);">'X-Requested-With'</span>: <span style="color: rgb(42, 161, 152);">'XMLHttpRequest'</span>},<br/><br/>
+  <span style="color: rgb(147, 161, 161);">//parameter参数</span><br/>
+  params: {<br/>
+    ID: <span style="color: rgb(42, 161, 152);">12345</span><br/>
+  },<br/><br/>
+  <span style="color: rgb(147, 161, 161);">//post参数，使用axios.post(url,{},config);如果没有额外的也必须要用一个空对象，否则会报错</span><br/>
+  <span style="color: rgb(133, 153, 0);">data</span>: {<br/>
+    firstName: <span style="color: rgb(42, 161, 152);">'Fred'</span><br/>
+  },<br/><br/>
+  <span style="color: rgb(147, 161, 161);">//设置超时时间</span><br/>
+  timeout: <span style="color: rgb(42, 161, 152);">1000</span>,<br/>
+  <span style="color: rgb(147, 161, 161);">//返回数据类型</span><br/>
+  responseType: <span style="color: rgb(42, 161, 152);">'json'</span>, <span style="color: rgb(147, 161, 161);">// default</span><br/><br/><br/>
+}</code></div></div><h2 style="margin: 0px 0px 0.5em; font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-weight: bold; color: rgb(51, 51, 51); text-rendering: optimizeLegibility; font-size: 18px; text-indent: 1em; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">返回响应概要 Response Schema</h2><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">一个请求的返回包含以下信息</p><pre style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 1.5em; font-size: 14px; word-break: break-all; word-wrap: break-word; white-space: pre; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+{
+    <span style="color: rgb(188, 96, 96);">//</span><span style="color: rgb(136, 0, 0);">`data`</span>是服务器的提供的回复（相对于请求）
+    data{},
+
+    <span style="color: rgb(188, 96, 96);">//</span><span style="color: rgb(136, 0, 0);">`status`</span>是服务器返回的http状态码
+    <span style="color: rgb(188, 96, 96);">status:</span><span style="color: rgb(136, 0, 0);">200</span>,
+
+
+    <span style="color: rgb(188, 96, 96);">//</span><span style="color: rgb(136, 0, 0);">`statusText`</span>是服务器返回的http状态信息
+    <span style="color: rgb(188, 96, 96);">statusText:</span> <span style="color: rgb(136, 0, 0);">'ok'</span>,
+
+    <span style="color: rgb(188, 96, 96);">//</span><span style="color: rgb(136, 0, 0);">`headers`</span>是服务器返回中携带的headers
+    <span style="color: rgb(188, 96, 96);">headers:</span>{},
+
+    <span style="color: rgb(188, 96, 96);">//</span><span style="color: rgb(136, 0, 0);">`config`</span>是对axios进行的设置，目的是为了请求（request）
+    <span style="color: rgb(188, 96, 96);">config:</span>{}
+}
+</pre><p style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, STXihei, &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);">使用 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">then</code> ，你会接受打下面的信息</p><pre style="padding: 0.5em; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(68, 68, 68); border-radius: 4px; display: block; margin: 0px 0px 1.5em; font-size: 14px; word-break: break-all; word-wrap: break-word; white-space: pre; background-color: rgb(246, 246, 246); border: none; overflow-x: auto; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+axios.<span style="color: rgb(51, 51, 51); font-weight: 700;">get</span>(<span style="color: rgb(136, 136, 136);">'/user/12345')</span>
+    .<span style="color: rgb(51, 51, 51); font-weight: 700;">then</span>(<span style="color: rgb(51, 51, 51); font-weight: 700;">function</span>(<span style="color: rgb(57, 115, 0);">response</span>){
+        console.<span style="color: rgb(57, 115, 0);">log</span>(<span style="color: rgb(57, 115, 0);">response</span>.data);
+        console.<span style="color: rgb(57, 115, 0);">log</span>(<span style="color: rgb(57, 115, 0);">response</span>.status);
+        console.<span style="color: rgb(57, 115, 0);">log</span>(<span style="color: rgb(57, 115, 0);">response</span>.statusText);
+        console.<span style="color: rgb(57, 115, 0);">log</span>(<span style="color: rgb(57, 115, 0);">response</span>.headers);
+        console.<span style="color: rgb(57, 115, 0);">log</span>(<span style="color: rgb(57, 115, 0);">response</span>.config);
+    });
+</pre><div style="margin: 0px 0px 0.75em; font-size: 16px; text-indent: 1em; color: rgb(51, 51, 51); font-family: 'Helvetica Neue', Helvetica, Tahoma, Arial, STXihei, 'Microsoft YaHei', 微软雅黑, sans-serif; font-style: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);"><div>使用 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">catch</code> 时，或者传入一个 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">reject callback</code> 作为 <code style="padding: 2px 4px; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; color: rgb(51, 51, 51) !important; border-radius: 3px; background-color: rgb(247, 247, 249); border: none; white-space: normal; font-weight: 600; font-size: 14px;">then</code> 的第二个参数，那么返回的错误信息将能够被使用。</div></div></div></div></div><div><br/></div></div></div></span>
+</div></body></html> 

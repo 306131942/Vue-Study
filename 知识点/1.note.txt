@@ -1,0 +1,108 @@
+untilgone  陶逸飞
+
+
+gitlab
+luochuangui
+lcg187537
+
+C:\Windows\System32\drivers\etc
+
+id系统
+192.168.13.32 casserver
+192.168.113.121
+bizmodeler
+192.168.13.34 bizModeler
+
+
+// console.log(JSON.stringify(response.data.data))
+
+
+cd E:/SCEO2.0/web/download/vue-tutorials-master/06.Router/demo01
+cd E:/SCEO2.0/web/my-project/m-3/index2
+
+git clone git@192.168.13.53:luochuangui/my-first-project.git
+
+李伟伟：192.168.113.55:8080/#/
+少龙：
+http://dswww/net/EDM_Demo/%E6%A8%A1%E5%9E%8B%E7%AE%A1%E7%90%86/INDEX.HTML#g=1&p=%E6%A8%A1%E5%9E%8B%E5%88%97%E8%A1%A8
+
+token
+4a74795e0d273ad6f06af419981f77d24c9742c8
+
+
+    进入工程目录 cd $project_root
+    初始化git仓库 git init
+    添加文件到仓库 git add .
+    提交代码到仓库 git commit -m 'init commit'
+    链接到git server git remote add origin git@192.168.13.53:luochuangui/my-first-project.git
+    push代码到服务器 git push origin master
+
+1、陶总建议前端用webstorm 和 atom, 开发的时候用webstorm , 练习的时候用atom
+
+2、搭建环境步骤
+1.安装node
+
+2.安装cnpm镜像
+（node自带安装了npm，故不再安装）
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+4.安装Vue2.0
+$ cnpm install vue
+
+5.安装vue-cli 脚手架工具
+$ cnpm install --global vue-cli
+$ cnpm install -g vue-cli
+
+6.在某个目录下，创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project-name    
+//vue init webpack-simple my-project-name 
+//my-project是你的项目名
+
+7.安装依赖
+$ cd my-project-name  //到项目目录下
+$ cnpm install  //安装依赖
+cnpm install axios -S
+cnpm i element-ui -S
+
+8.运行新创建的vue项目
+$ npm run dev
+
+
+注意：和browserify不同的是，执行npm run dev命令后并不会在dist目录下生成build.js文件，
+开发环境下build.js是在运行内存中的。
+
+5. 发布
+执行以下命令会生成发布时的build.js，并且是经过压缩的。
+cnpm run build
+
+9、打包上线
+自己的项目文件都需要放到 src 文件夹下
+项目开发完成之后，可以输入 npm run build 来进行打包工作
+npm run build
+打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看
+项目上线时，只需要将 dist 文件夹放到服务器就行了。
+
+路径切换 E:
+node --version
+vue --version
+npm --version
+
+ vue init webpack my-project
+创建完成：
+ To get started:
+   cd vue-webpack-p
+   npm install
+   npm run dev（切换到目录）
+
+3、基本架子有了, 陶总要做成这样 https://www.jotform.com/
+
+
+main.js
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
+虚拟后端数据
+mock.js
+使用方法
+

@@ -1,0 +1,12 @@
+1、下载
+    github下载地址：https://github.com/vuejs/vue-devtools
+2、npm install
+     npm run build （这一步一定不要忘了，没有执行这一步的话，项目文件夹shells>chrome文件夹里会少一个src文件夹）
+
+3、修改shells>chrome文件夹下的mainifest.json 中的persistant为true
+
+4、游览器输入“chrome://extensions/”，点击“加载已解压的扩展程序...”按钮（需要勾选“开发者模式”），
+     选择vue-devtools>shells下的chrome文件夹。
+	
+5、我们在打开本地的其他项目时，就不需要在vue-devtools文件夹下执行npm run dev了，因为这个插件已经安装在浏览器中。
+     接下来就愉快的调试你的vue项目吧

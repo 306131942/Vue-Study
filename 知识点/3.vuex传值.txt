@@ -1,0 +1,294 @@
+扩展学习：
+filter()方法使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。
+
+
+一、
+（参考：http://blog.csdn.net/sinat_17775997/article/details/52688350）
+vuex是一个专门为Vue.js应用所涉及的集中式状态管理架构，借鉴Flux和Reddux的设计思想，但简化了概念，并且采用了一种能更好发挥Vue.js
+数据响应机制而专门设计的实现
+
+
+
+State:单一状态树，用一个对象就包含了全部的应用层级状态，mapState 辅助函数？
+Getters：Vuex 允许我们在 store 中定义『getters』（可以认为是 store 的计算属性）。
+	就像计算属性一样，getters的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
+Mutations：更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。
+ 	mutations: {
+    	    increment (state) {    //每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。
+      	    // 变更状态
+	   //这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数
+      	    state.count++
+    	    }
+  	}
+	//不能直接调用一个 mutation handler
+	//当触发一个类型为 increment 的 mutation 时，调用此函数
+	//要唤醒一个 mutation handler，你需要以相应的 type 调用 store.commit 方法：store.commit('increment')
+	//一条重要的原则就是要记住 mutation 必须是同步函数
+	//在 Vuex 中，mutation 都是同步事务
+	//
+
+// 传入额外的参数，即 mutation 的 载荷（payload）
+mutations: {
+  increment (state, n) {
+    state.count += n
+  }
+}
+store.commit('increment', 10)
+// 载荷应该是一个对象
+mutations: {
+  increment (state, payload) {
+    state.count += payload.amount
+  }
+}
+store.commit('increment', {
+  amount: 10
+})
+store.commit({
+  type: 'increment',
+  amount: 10
+})
+
+
+Actions:
+	Action 类似于 mutation，不同在于：
+	Action 提交的是 mutation，而不是直接变更状态。
+	Action 可以包含任意异步操作。
+
+	分发 Action
+	Action 通过 store.dispatch 方法触发：
+	store.dispatch('increment')
+	
+Modules
+
+
+
+格式：
+第一版本
+store/index.js文件
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    methodsChoiceId: ''
+  },
+  mutations: {
+    methodsChoice (state, id) {
+      state.methodsChoiceId = id
+    }
+  },
+  actions: {
+    methodsChoice (context, id) {
+      context.commit('methodsChoice', id)
+    }
+  }
+})
+页面使用：
+watch: {-------------------------------------------------------------------------------写的有问题
+    methodsChoiceId: function () {
+      return this.$store.state.methodsChoiceId
+    }
+}
+
+list.edmpEdmmId = this.$store.state.methodsChoiceId
+
+this.$store.dispatch('methodsChoice', this.methodData.id)-------------------------怎么调用的
+
+
+第二个版本
+store  一个modules文件夹 
+         一个index.js
+
+
+import 导入一些东西
+const state={
+}
+const getters={
+}
+const mutations={
+}
+const actions={
+}
+export default{
+	state,
+	getters,
+	actions,
+	mutations
+}
+
+
+获取值
+computed: {
+    count () {
+      return this.$store.state.count
+    }
+  }
+
+ var type = this.$store.state.methodType
+
+更新值
+ this.$store.dispatch('methodsChoice', vm.methodData.id)
+
+  actions: {
+    methodsChoice (context, id) {
+      context.commit('methodsChoice', id)
+    }
+}
+
+ mutations: {
+    methodsChoice (state, id) {
+      state.methodsChoiceId = id
+    }
+}
+
+state: {
+    methodsChoiceId: ''
+}
+
+父子传值实例：
+弹窗直接props
+路由直接this.$route.params.if
+
+
+A 为父组件，下面有子组件 B 和 C
+
+
+1.0
+A 的数据可以通过 props 传递给 B 和 C。================================弹窗组件，路由组件
+A 可以通过 $broadcast 调用 B 和 C 的 events，从而操作 B 和 C 的数据。
+B 和 C 可以通过 $dispatch 调用 A 的 events，从而操作 A 的数据。
+
+2.0
+当我们需要组件之间事件通信的时候，只需要对这个 使用 $emit 和 $on
+
+父给子。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+//props传递父组件数据,默认为单向绑定，注意:字面量语法传递的是字符串，如需要传递实际数值，
+//需使用动态语法v-bind:或缩写模式:（也即可以看成是表达式的方式）,支持修饰符.sync和.once绑定修饰符，绑定动态props，
+//注意使用驼峰形式的props时，需要转换为短横杠的形式
+
+<methodClass :child-mag="todata"></methodClass>
+todata: '34'
+
+ props: ['childMag'],
+ created: function () 
+{
+   
+alert(this.childMag).............................
+
+
+子给父。。。。。。。。。。。。。。。。。。。。。。
+ // 确认按钮，返回分类id/name给父页面
+      
+confirm: function () {
+        
+var idName = {}
+        
+idName.id = this.methodData.id
+        
+idName.name = this.methodData.edmtName
+        
+// console.log(idName)
+       
+ this.$emit('upup', idName)   // 主动触发upup方法，'idName'为向父组件传递的数据
+      }
+
+
+<methodClass @upup="changeType"></methodClass>
+// 返回Object{ id: "1", name: "分类1" }
+    changeType (data) {
+      this.methodObject.edmm_type_name = data.name
+      this.methodObject.edmm_type = data.id
+      this.treeVisible = false
+    }
+
+
+父传给子例子：弹窗
+===================================================================父
+1、
+ <el-table-column prop="edmdCode" label="模型版本" align='center' width="200">
+        <template scope="scope">
+          <el-button size="small" @click="seeMod(scope.row.id)" type="text">{{scope.row.edmdVer}}</el-button>
+          <!--<a href="javascript:void(0)" @click="seeMod(scope.row.id)">{{scope.row.edmdVer}}</a>-->
+        </template>
+      </el-table-column>
+
+2、
+    <el-dialog title="新增EDM" v-model="dialogVisible" size="tiny">
+      <edmDef :code="0" v-if="dialogVisible" @closeDia="closeDia"></edmDef>
+    </el-dialog>
+    <el-dialog title="EDM维护" v-model="dialogVisible1" size="tiny">
+      <edmDef :code="1" :edmId="edmId" v-if="dialogVisible1" @closeDia="closeDia1"></edmDef>
+    </el-dialog>
+
+3、
+点击===========打开弹窗
+      seeMod: function (id) {
+        this.edmId = id
+        this.dialogVisible1 = true
+      }
+
+4、
+关闭发生的刷新：
+  closeDia () {
+        this.dialogVisible = false
+        this.getData()
+      },
+      closeDia1 () {
+        this.dialogVisible1 = false
+        this.getData()
+      }
+===================================================子页面   不用再定义
+  props: ['code', 'edmId'],
+
+
+二、路由=====================================================================
+创建 a 标签来定义导航链接
+
+声明式：<router-link :to="...">
+编程式：router.push(...)
+
+<router-link to='/method-manage' class="link-line"><el-menu-item index="3-1">方法管理</el-menu-item></router-link>
+<router-link to='/method-model' class="link-line"><el-menu-item index="3-3">方法与模型关系查询</el-menu-item></router-link>
+<router-link to='/F-model' class="link-line"><el-menu-item index="3-4">卷积公式与模型关系查询</el-menu-item></router-link>
+
+====================================================================================
+ <el-table-column label="模型操作" width="200" align='center'>
+        <template scope="scope">
+          <el-button size="small" @click="editmod(scope.row.id, scope.row.edmdVer)" type="text"
+                     v-if="modelStatu(scope.row.edmdStatus)">编辑
+          </el-button>
+          <el-button size="small" @click="browsemod(scope.row.id)" type="text"
+                     v-if="!modelStatu(scope.row.edmdStatus)">浏览
+          </el-button>
+          <el-button size="small" @click="open3(scope.row.id)" type="text">导出</el-button>
+        </template>
+      </el-table-column>
+============================================查看路由配置
+
+=========================================================
+ editmod: function (id, code) {
+        this.$router.push('/modelMain/1/' + id)
+        this.$store.dispatch('edmCode', code)=====================================VUEX
+      },
+      browsemod: function (id) {
+        this.$router.push('/modelMain/0/' + id)
+      },
+
+=================子页面，获取值
+<el-form>
+        <el-menu  class="" mode="horizontal" style="background-color:#ffffff">
+          <router-link to="/model" ><el-menu-item index="1" >属性</el-menu-item></router-link>
+          <router-link to='/methods'><el-menu-item index="2">方法</el-menu-item></router-link>
+          <router-link to='/constant'><el-menu-item index="3">常量</el-menu-item></router-link>
+          <router-link to='/basic'><el-menu-item index="4">基础信息</el-menu-item></router-link>
+        </el-menu>
+</el-form>
+
+created: function () {
+    if (this.$route.params.if === '0') {
+      this.ifoperate = false
+    }
+  }
+

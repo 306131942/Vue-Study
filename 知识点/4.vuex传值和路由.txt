@@ -1,0 +1,107 @@
+一、
+（参考：http://blog.csdn.net/sinat_17775997/article/details/52688350）
+vuex是一个专门为Vue.js应用所涉及的集中式状态管理架构，借鉴Flux和Reddux的设计思想，但简化了概念，并且采用了一种能更好发挥Vue.js
+数据响应机制而专门设计的实现
+
+父子传值实例：
+C:\Users\luocg\Downloads\Go-Vue-master\Go-Vue-master\vue-pinghu
+
+
+A 为父组件，下面有子组件 B 和 C
+
+
+1.0
+A 的数据可以通过 props 传递给 B 和 C。
+A 可以通过 $broadcast 调用 B 和 C 的 events，从而操作 B 和 C 的数据。
+B 和 C 可以通过 $dispatch 调用 A 的 events，从而操作 A 的数据。
+
+2.0
+当我们需要组件之间事件通信的时候，只需要对这个 使用 $emit 和 $on
+
+
+
+父给子。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+//props传递父组件数据,默认为单向绑定，注意:字面量语法传递的是字符串，如需要传递实际数值，
+//需使用动态语法v-bind:或缩写模式:（也即可以看成是表达式的方式）,支持修饰符.sync和.once绑定修饰符，绑定动态props，
+//注意使用驼峰形式的props时，需要转换为短横杠的形式
+
+<methodClass :child-mag="todata"></methodClass>
+todata: '34'
+
+ props: ['childMag'],
+ created: function () 
+{
+   
+alert(this.childMag).............................
+
+
+子给父===============================
+ // 确认按钮，返回分类id/name给父页面
+      
+confirm: function () {
+        
+var idName = {}
+        
+idName.id = this.methodData.id
+        
+idName.name = this.methodData.edmtName
+        
+// console.log(idName)
+       
+ this.$emit('upup', idName)   // 主动触发upup方法，'idName'为向父组件传递的数据
+}
+
+
+<methodClass @upup="changeType"></methodClass>
+// 返回Object{ id: "1", name: "分类1" }
+    changeType (data) {
+      this.methodObject.edmm_type_name = data.name
+      this.methodObject.edmm_type = data.id
+      this.treeVisible = false
+    }
+
+
+父传给子例子：
+===================================================================父
+1、
+ <el-table-column prop="edmdCode" label="模型版本" align='center' width="200">
+        <template scope="scope">
+          <el-button size="small" @click="seeMod(scope.row.id)" type="text">{{scope.row.edmdVer}}</el-button>
+          <!--<a href="javascript:void(0)" @click="seeMod(scope.row.id)">{{scope.row.edmdVer}}</a>-->
+        </template>
+      </el-table-column>
+
+2、
+    <el-dialog title="新增EDM" v-model="dialogVisible" size="tiny">
+      <edmDef :code="0" v-if="dialogVisible" @closeDia="closeDia"></edmDef>
+    </el-dialog>
+    <el-dialog title="EDM维护" v-model="dialogVisible1" size="tiny">
+      <edmDef :code="1" :edmId="edmId" v-if="dialogVisible1" @closeDia="closeDia1"></edmDef>
+    </el-dialog>
+
+3、
+点击===========打开弹窗
+      seeMod: function (id) {
+        this.edmId = id
+        this.dialogVisible1 = true
+      }
+
+4、
+关闭发生的刷新：
+  closeDia () {
+        this.dialogVisible = false
+        this.getData()
+      },
+      closeDia1 () {
+        this.dialogVisible1 = false
+        this.getData()
+      }
+===================================================子页面
+  props: ['code', 'edmId'],
+
+
+
+
+
+
+

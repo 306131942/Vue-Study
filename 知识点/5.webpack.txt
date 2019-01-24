@@ -1,0 +1,28 @@
+Webpack是一个前端资源加载/打包工具，他将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源
+Webpack 可以将多种静态资源 js、css、less 转换成一个静态文件，减少了页面的请求。
+
+1、安装node
+2、安装webpack
+	cnpm install webpack -g
+3、LOADER
+	Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。
+	所以如果我们需要在应用中添加 css 文件，就需要使用到 css-loader 和 style-loader，他们做两件不同的事情，
+	css-loader 会遍历 CSS 文件，然后找到 url() 表达式然后处理他们，
+	style-loader 会把原来的 CSS 代码插入页面中的一个 style 标签中。
+
+4、插件
+	插件在 webpack 的配置信息 plugins 选项中指定，用于完成一些 loader 不能完成的工。
+	webpack 自带一些插件，你可以可以通过 cnpm 安装一些插件。
+5、用内置插件需要通过以下命令来安装：
+	// 生成node_modules文件夹和package.json文件
+	cnpm install webpack --save-dev
+
+6、接下来我们使用 webpack 命令来打包：
+	// 执行命令会编译 runoob1.js 文件并生成bundle.js 文件
+	webpack runoob1.js bundle.js
+  
+7、配置文件
+	我们可以将一些编译选项放在配置文件中，以便于统一管理:创建 webpack.config.js 文件
+	接下来我们只需要执行 webpack 命令即可生成 bundle.js 文件
+8、
+9、

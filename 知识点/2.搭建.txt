@@ -1,0 +1,97 @@
+eslint是语法检查工具，限制很严格
+查找文件webpack.base.conf.js
+
+查看版本
+node --version
+vue --version
+npm --version
+
+2、搭建环境步骤
+1.安装node
+nodejs已经集成了npm
+
+2.安装cnpm镜像
+（node自带安装了npm，故不再安装）
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+4.安装Vue2.0
+$ cnpm install vue
+
+5.全局安装vue-cli 脚手架工具
+$ cnpm install -g vue-cli
+
+6.在某个目录下，创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project-name    
+//my-project-name是你的项目名
+
+7.安装依赖
+$ cd my-project-name  //到项目目录下
+$ cnpm install  //安装依赖
+cnpm install axios -S
+cnpm install element-ui -S
+
+cnpm install element-ui@2.0.2 -S
+
+cnpm uninstall element-ui
+
+
+8.运行新创建的vue项目
+$ npm run dev
+
+
+
+获取数据测试：
+vue文件加入
+import axios from 'axios'
+
+  // 加载时运行
+  
+created: function () {
+   
+ var _this = this
+    
+axios.get('http://192.168.13.34:2001/v1/methodtypes').then(function (res) {
+      
+// 类树
+      
+console.log(JSON.stringify(res.data.data))
+    
+})
+    
+.catch(function (error) {
+     
+ _this.$message({message: '方法分类树接口调用失败' + error, showClose: true, type: 'error'})
+    
+})
+  
+}
+
+
+使用element ui
+在 main.js 中写入以下内容：
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
+
+Vue.use(ElementUI)
+
+
+http://rapapi.org/mockjs/21024/rlmmQuery
+
+
+
+npm安装模块
+
+【npm install xxx】利用 npm 安装xxx模块到当前命令行所在目录；
+【npm install -g xxx】利用npm安装全局模块xxx；
+本地安装时将模块写入package.json中：
+
+【npm install xxx】安装但不写入package.json；
+【npm install xxx –save】 安装并写入package.json的”dependencies”中；
+【npm install xxx –save-dev】安装并写入package.json的”devDependencies”中。
+npm 删除模块
+
+【npm uninstall xxx】删除xxx模块； 
+【npm uninstall -g xxx】删除全局模块xxx；
+
